@@ -38,13 +38,13 @@ class StreamForm extends React.Component {
   }
 }
 
-const validate = (formVales) => {
+const validate = (formValues) => {
   const errors = {};
 
-  if (!formVales.title) {
+  if (!formValues.title) {
     errors.title = 'you must enter a title';
   }
-  if (!formVales.description) {
+  if (!formValues.description) {
     errors.description = 'you must enter a description';
   }
 

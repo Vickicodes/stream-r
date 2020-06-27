@@ -30,9 +30,12 @@ export const fetchStreams = () => async (dispatch) => {
 };
 
 export const fetchStream = (id) => async (dispatch) => {
-  const response = await streams.get(`/streams/${id}`);
-
-  dispatch({ type: 'FETCH_STREAM', payload: response.data });
+  try {
+    const response = await streams.get(`/streams/${id}`);
+    dispatch({ type: 'FETCH_STREAM', payload: response.data });
+  } catch (e) {
+    history.push('/');
+  }
 };
 
 export const editStream = (id, formValues) => async (dispatch) => {
